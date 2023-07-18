@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ToyCompiler20150417">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/ToyCompiler20150417.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
