@@ -21,6 +21,14 @@ public class NodeBuilder {
         rootNode = new IntegerValue(value);
     }
 
+    public void makeStringValue(String value) {
+        rootNode = new StringValue(value);
+    }
+
+    public void makeBooleanValue(Boolean value) {
+        rootNode = new BooleanValue(value);
+    }
+
     public void makeVariableReference(String name) {
         if (ProgramNode.varTable == null) {
             ProgramNode.varTable = new HashMap<>();

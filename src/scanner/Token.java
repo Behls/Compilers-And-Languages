@@ -27,6 +27,26 @@ public class Token {
         }
     }
 
+//    similar method aboce to check if its string and boolean values
+
+    public boolean isBoolean() {
+        try {
+            Boolean.parseBoolean(value);
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
+    public boolean IsString() {
+        try {
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
+
     public boolean isKeyword() {
         return isKeywordRead() || isKeywordPrint() || isKeywordIf()
                 || isKeywordThen() || isKeywordElse() || isKeywordEndif()

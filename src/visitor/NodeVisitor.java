@@ -21,4 +21,10 @@ public interface NodeVisitor {
     public abstract void visitWhile(While node);
 
     public abstract void visitBlock(Block node);
+
+//  adding types here
+
+    public abstract void visitBooleanValue(BooleanValue node);
+
+    public abstract void visitStringValue(StringValue node);
 }

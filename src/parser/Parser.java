@@ -32,13 +32,25 @@ public class Parser {
         }
         if (debug) { System.err.println("Parser: Leaving expression"); }
     }
-    
+
+//  added the boolean and string values here
+
     public void parseTerm(){
         if (debug) { System.err.println("Parser: Entering term"); }
         lexer.next();
         if (lexer.getItem().isInteger()){
             builder.makeIntegerValue(Integer.parseInt(lexer.getItem().getValue()));
             //lexer.next();
+        } else if(lexer.getItem().IsString()){
+            builder.makeStringValue(lexer.getItem().getValue());
+            if(!lexer.getItem().IsString()){
+                System.out.println("String value expected");
+            }
+        } else if(lexer.getItem().isBoolean()){
+            builder.makeBooleanValue(Boolean.parseBoolean(lexer.getItem().getValue()));
+            if(!lexer.getItem().isBoolean()){
+                System.out.println("Boolean value expected");
+            }
         } else if (lexer.getItem().isLeftParenthesis()){
             parseExpression();
             if (!lexer.getItem().isRightParenthesis()){
