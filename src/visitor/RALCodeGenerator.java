@@ -161,6 +161,30 @@ public class RALCodeGenerator implements NodeVisitor {
     }
 
     @Override
+    public void visitBooleanValue(BooleanValue node){
+        int temp;
+        if(node.getValue()){
+//          1 = true
+            temp = 1;
+        }else{
+//          0 = false;
+            temp = 0;
+        }
+        memoryValues.add(temp);
+        memoryComments.add("The constant " + node.getValue());
+        int location = memoryValues.size() - 1;
+        instructionCodes.add("LDA");
+        instructionArgs.add(location);
+        instructionComments.add("The constant " + node.getValue());
+    }
+
+//  to implement still
+    @Override
+    public void visitStringValue(StringValue node){
+
+    }
+
+    @Override
     public void visitAssignment(Assignment node) {
         // Don't "visit" the variable. We know what type it is, so grab its
         // location directly from here without doing the Visitor thing.
@@ -287,5 +311,8 @@ public class RALCodeGenerator implements NodeVisitor {
             out.print(instructionCodes.size());
             out.println(" HLT\t# Halt");
         }
+    }
+    public void visitFunction(Function node){
+
     }
 }

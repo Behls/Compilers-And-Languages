@@ -66,6 +66,10 @@ public class Parser {
         if (debug) { System.err.println("Parser: Leaving term"); }
         lexer.next();
     }
+
+    public void parseFunction(){
+
+    }
     
     public void parseStatement(){
         if (lexer.getItem().isKeywordRead()){

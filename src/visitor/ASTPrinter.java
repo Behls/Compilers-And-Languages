@@ -43,6 +43,18 @@ public class ASTPrinter implements NodeVisitor {
     }
 
     @Override
+    public void visitBooleanValue(BooleanValue node){
+        indentation();
+        System.out.println(node.getValue());
+    }
+
+    @Override
+    public void visitStringValue(StringValue node){
+        indentation();
+        System.out.println(node.getValue());
+    }
+
+    @Override
     public void visitAssignment(Assignment node) {
         indentation();
         System.out.println("Assignment");
@@ -100,5 +112,9 @@ public class ASTPrinter implements NodeVisitor {
             node.getStatements().get(i).traverse(this);
         }
         outdent();
+    }
+
+    public void visitFunction(Function node){
+
     }
 }

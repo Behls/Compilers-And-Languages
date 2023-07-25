@@ -19,5 +19,4 @@ public class BooleanValue extends Expression{
     public void traverse(NodeVisitor v) {
         v.visitBooleanValue(this);
     }
-
 }

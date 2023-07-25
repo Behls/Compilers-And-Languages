@@ -31,6 +31,16 @@ public class PythonCodeGenerator implements NodeVisitor {
     }
 
     @Override
+    public void visitBooleanValue(BooleanValue node){
+        out.print(node.getValue());
+    }
+
+    @Override
+    public void visitStringValue(StringValue node){
+        out.print(node.getValue());
+    }
+
+    @Override
     public void visitAssignment(Assignment node) {
         indentation();
         node.getVariable().traverse(this);
@@ -88,6 +98,10 @@ public class PythonCodeGenerator implements NodeVisitor {
         for (int i = 0; i < node.getStatements().size(); i++) {
             node.getStatements().get(i).traverse(this);
         }
+    }
+
+    public void visitFunction(Function node){
+
     }
 
     private int depth;

@@ -50,12 +50,12 @@ public class Token {
     public boolean isKeyword() {
         return isKeywordRead() || isKeywordPrint() || isKeywordIf()
                 || isKeywordThen() || isKeywordElse() || isKeywordEndif()
-                || isKeywordWhile() || isKeywordDo() || isKeywordEnd();
+                || isKeywordWhile() || isKeywordDo() || isKeywordEnd() || isKeywordFunction() || isKeywordStart() || isKeywordFinish();
     }
 
     public boolean isStatementKeyword() {
         return isKeywordRead() || isKeywordPrint() || isKeywordIf()
-                || isKeywordWhile() || isIdentifier();
+                || isKeywordWhile() || isIdentifier() || isKeywordFunction() || isKeywordStart() || isKeywordFinish();
     }
 
     public boolean isOperator() {
@@ -120,7 +120,15 @@ public class Token {
         return value.equals("do");
     }
 
-    public boolean isKeywordEnd() {
-        return value.equals("end");
-    }
+    public boolean isKeywordEnd() {return value.equals("end"); }
+
+    public boolean isKeywordFunction() {return value.equals("def"); }
+
+    public boolean isKeywordStart() {return value.equals("start"); }
+
+    public boolean isKeywordFinish() {return value.equals("finish"); }
+
+
+
+
 }

@@ -22,6 +22,8 @@ public interface NodeVisitor {
 
     public abstract void visitBlock(Block node);
 
+    public abstract void visitFunction(Function Node);
+
 //  adding types here
 
     public abstract void visitBooleanValue(BooleanValue node);

@@ -35,6 +35,16 @@ public class JavaCodeGenerator implements NodeVisitor {
     }
 
     @Override
+    public void visitBooleanValue(BooleanValue node){
+        out.print(node.getValue());
+    }
+
+    @Override
+    public void visitStringValue(StringValue node){
+        out.print(node.getValue());
+    }
+
+    @Override
     public void visitAssignment(Assignment node) {
         indentation();
         node.getVariable().traverse(this);
@@ -122,6 +132,11 @@ public class JavaCodeGenerator implements NodeVisitor {
             indentation();
             out.println("}");
         }
+    }
+
+    @Override
+    public void visitFunction(Function node){
+
     }
 
     private int depth;

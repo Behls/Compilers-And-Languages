@@ -5,7 +5,8 @@ import tree.*;
 public class StatGenerator implements NodeVisitor {
 
     private int operations = 0, ifs = 0, whiles = 0, assignments = 0,
-            others = 0, vars = 0, ints = 0, blocks = 0;
+            others = 0, vars = 0, ints = 0, blocks = 0, functions = 0,
+            booleans = 0, strings = 0;
 
     @Override
     public void visitBinaryExpression(BinaryExpression node) {
@@ -22,6 +23,19 @@ public class StatGenerator implements NodeVisitor {
     @Override
     public void visitIntegerValue(IntegerValue node) {
         ints++;
+    }
+    @Override
+    public void visitBooleanValue(BooleanValue node) {
+        booleans++;
+    }
+    @Override
+    public void visitStringValue(StringValue node) {
+        strings++;
+    }
+
+    @Override
+    public void visitFunction(Function node) {
+        functions++;
     }
 
     @Override

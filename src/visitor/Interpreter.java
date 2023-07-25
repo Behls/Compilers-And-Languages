@@ -12,6 +12,9 @@ public class Interpreter implements NodeVisitor {
     private String identifier;
     private boolean identifierNotKnown;
     private final Scanner stdin;
+    private String stringValue;
+    private boolean booleanV;
+
 
     public Interpreter() {
         symbolTable = new HashMap<>();
@@ -65,6 +68,16 @@ public class Interpreter implements NodeVisitor {
     }
 
     @Override
+    public void visitBooleanValue(BooleanValue node){
+        booleanV = (node.getValue());
+    }
+
+    @Override
+    public void visitStringValue(StringValue node){
+        stringValue = (node.getValue());
+    }
+
+    @Override
     public void visitAssignment(Assignment node) {
         String id;
         node.getVariable().traverse(this);
@@ -111,5 +124,10 @@ public class Interpreter implements NodeVisitor {
         for (int i = 0; i < node.getStatements().size(); i++) {
             node.getStatements().get(i).traverse(this);
         }
+    }
+
+    @Override
+    public void visitFunction(Function node){
+
     }
 }
